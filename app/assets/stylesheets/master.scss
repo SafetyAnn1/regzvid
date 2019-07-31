@@ -2,18 +2,49 @@
 
 
 .navbar {
-  background: image_url('navcolor.png');
+  background: image_url('carbon.png');
   box-shadow: 0px 1px 3px #2a2a2a;
 }
 
-.navbar-brand {
-  color: #000000;
+.navbar-inverse .navbar-brand {
+  color: #e6da5e;
   font-family: 'capture_it_2regular', sans-serif;
-  font-size: 70px;
+  font-size: 50px;
   letter-spacing: 5px;
   margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar {
+  margin: 0;
 }
 
 body {
   background: image_url('tiles.png');
   }
+
+  .hero {
+    background: image_url('hero3.jpg');
+    height: 375px;
+    box-shadow: 0px 3px 8px #2a2a2a;
+  }
+
+  .frosty {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.frosty h1 {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+  text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
+}
+
+.frosty h2 {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 200;
+  text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
+}
+
+.btn {
+  border-radius: 0;
+}
