@@ -19,6 +19,15 @@
         <br />
         <%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large' %>
       <% end %>
+
+      <br />
+      <br />
+      
+      <% if current_user && current_user.enrolled_in?(@course) %>
+        <h3 class="badge badge-info">You Are Enrolled!</h3>
+      <% else %>
+        <%= link_to 'Enroll', course_enrollments_path(@course), class: 'btn btn-primary', method: :post %>
+      <% end %>
     </div>
 
     <div class="col-sm-8 col-12">
@@ -28,27 +37,27 @@
 
   <div class="col-12">
     <% @course.sections.each do |section| %>
-    <br /><br />
+      <br /><br />
       <div class="section">
         <h3>
-        <%= section.title %>
+          <%= section.title %>
         </h3>
-      <div class="row">
-        <% section.lessons.each do |lesson| %>
-          <div class="col-12 col-sm-6">
-            <div class="lesson text-center">
-              <br />
-              <%= link_to lesson_path(lesson) do %>
-                <b><%= lesson.title %></b>
+        <div class="row">
+          <% section.lessons.each do |lesson| %>
+            <div class="col-12 col-sm-6">
+              <div class="lesson text-center">
                 <br />
-              <%= lesson.subtitle %>
-              <% end %>
+                <%= link_to lesson_path(lesson) do %>
+                  <b><%= lesson.title %></b>
+                  <br />
+                  <%= lesson.subtitle %>
+                <% end %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
+        <br class="clr" />
       </div>
-      <br class="clr" />
-    </div>
     <% end %>
   </div>
 </div>
