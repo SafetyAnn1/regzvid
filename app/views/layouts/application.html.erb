@@ -11,90 +11,92 @@
   </head>
 
   <body>
-<div id="flex-content-container">
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <div id="flex-content-container">
+      <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <%= link_to 'RegzVID', root_path, class: 'navbar-brand' %>
+        </button>
+        <%= link_to 'RegzVID', root_path, class: 'navbar-brand' %>
 
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-          <li class="nav-item">
-          <%= link_to 'See All Courses', courses_path, class: 'nav-link' %>
-          </li>
-        </ul>
-         <ul class="navbar-nav">
-      <% if user_signed_in? %>
-        <li class="nav-item">
-        <%= link_to 'My Dashboard', dashboard_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-        <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
-        </li>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+            <li class="nav-item">
+            <%= link_to 'See All Courses', courses_path, class: 'nav-link' %>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+            <%= link_to 'My Dashboard', dashboard_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+            <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+
+      <% if notice.present? %>
+        <p class="alert alert-info"><%= notice %></p>
       <% end %>
-    </ul>
-  </div>
-</nav>
+      <% if alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
 
-    <% if notice.present? %>
-      <p class="alert alert-info"><%= notice %></p>
-    <% end %>
-    <% if alert.present? %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-
-    <%= yield %>
+      <%= yield %>
     </div>
 
-    <div id="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-sm-3">
-        <b>Instructor</b>
-        <br />
-        <%= link_to 'New Course Set-Up', new_instructor_course_path %>
-        <br />
-        <%= link_to 'My Dashboard', dashboard_path %>
+      <div id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-3">
+              <b>Instructor</b>
+              <br />
+              <%= link_to 'New Course Set-Up', new_instructor_course_path %>
+              <br />
+              <%= link_to 'My Dashboard', dashboard_path %>
+            </div>
+            <div class="col-12 col-sm-3">
+              <b>About</b>
+              <br />
+              <%= link_to 'Networking Services', 'https://regzpert-meier.herokuapp.com/', :target => "_blank" %>
+              <br />
+              <%= link_to 'Privacy Policy', privacy_path, :target => "_blank" %>
+            </div>
+            <div class="col-12 col-sm-3">
+              <b>Contact</b>
+              <br />
+              annmeier3@gmail.com
+              <br />
+              One Kendall Square
+              <br />
+              Austin, TX 78726
+            </div>
+            <div class="col-12 col-sm-3 social">
+              <b>Social</b>
+              <br />
+              <br />
+              <%= link_to 'https://github.com/SafetyAnn1', :target => "_blank" do %>
+                <span class="fa fa-github-square fa-2x social-button"></span>
+              <% end %>
+              <%= link_to 'https://www.linkedin.com/in/ann-meier-1588178/', :target => "_blank" do %>
+              <span class="fa fa-linkedin-square fa-2x social-button"></span>
+              <% end %>
+              <%= link_to 'https://twitter.com/trainosha', :target => "_blank" do %>
+              <span class="fa fa-twitter-square fa-2x social-button"></span>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-12 col-sm-3">
-        <b>About</b>
-        <br />
-        <%= link_to 'Team', '#' %>
-        <br />
-        <%= link_to 'Careers', '#' %>
-        <br />
-        <%= link_to 'Privacy Policy', '#' %>
-      </div>
-      <div class="col-12 col-sm-3">
-        <b>Contact</b>
-        <br />
-        my@email.com
-        <br />
-        One Kendall Square
-        <br />
-        Cambridge MA, 02113
-      </div>
-      <div class="col-12 col-sm-3 social">
-        <b>Social</b>
-        <br />
-        <br />
-        <%= link_to 'https://github.com/SafetyAnn1' do %>
-          <span class="fa fa-github-square fa-2x social-button"></span>
-        <% end %>
-        <span class="fa fa-facebook-square fa-2x social-button"></span>
-        <span class="fa fa-twitter-square fa-2x social-button"></span>
-      </div>
-    </div>
-  </div>
-</div>
 
     <script src="http://vjs.zencdn.net/5.12.6/video.js"></script>
     <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
