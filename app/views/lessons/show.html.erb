@@ -17,9 +17,11 @@
           <span class="fa fa-forward"></span>
         <% end %>
       <% end %>
-
+    </div>
      <br class="clr" />
      <br />
+     <br />
+     <div class="col-12 col-xs-12 center">
        <video id="my-video" class="video-js vjs-big-play-centered vjs-fluid" controls preload="auto"
       poster="<%= image_path('vidtile.jpg') %>" data-setup="{}">
         <source src="<%= current_lesson.video.to_s %>" type='video/mp4'>
@@ -30,7 +32,6 @@
             </p>
           </noscript>
         </video>
-      </div>
-    </div>
+     </div>
   </div>
 </div>
