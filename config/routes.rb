@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   resource :dashboard, only: [:show]
   root 'static_pages#index'
-  get 'privacy', to: 'static_pages#privacy'
+    get 'privacy', to: 'static_pages#privacy'
+    get 'gridsample', to: 'static_pages#gridsample'
   resources :courses, only: [:index, :show] do
     resources :enrollments, only: :create
   end

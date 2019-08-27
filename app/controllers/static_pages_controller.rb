@@ -5,5 +5,8 @@ class StaticPagesController < ApplicationController
 
   def privacy
   end
+
+  def gridsample
+  end
   
 end
